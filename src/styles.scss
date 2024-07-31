@@ -1,0 +1,143 @@
+// || GENERAL
+:root {
+    --background-app: #313131;
+    --background-panel: #414141;
+    --primary: #ca3e47;
+    --secondary: #525252;
+    --white: #ffffff;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  color: var(--white);
+  font-family: 'Roboto', sans-serif;
+}
+
+// || APP CONTAINER
+.app {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    background: var(--background-app);
+  }
+
+// || PANEL
+.panel {
+    height: 100vh;
+    width: 100vh;
+    background: var(--background-panel);
+    display: grid;
+    grid-template: repeat(2, auto) repeat(3, auto) / repeat(2, auto);
+    align-items: center;
+    grid-template-areas: 
+      "title title"
+      "buttonsPad buttonsPad"
+      "display display"
+      "sliderVolume sliderVolume"
+      "bottomBar bottomBar";
+    gap: 15px;
+    padding: 1rem;
+    border-radius: 0px;
+
+    // Layout for larger screens
+    @media only screen and (min-width: 768px) {
+        width: 650px;
+        height: auto;
+        padding: 1rem;
+        grid-template: auto / 1fr 1fr;
+        grid-template-areas: 
+          "buttonsPad title"
+          "buttonsPad display"
+          "buttonsPad sliderVolume"
+          "buttonsPad bottomBar";
+      }
+}
+
+// || TITLE
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-area: title;
+
+  h1 {
+    margin-left: 15px;
+  }
+}
+
+// || BUTTONS PAD
+.buttonsPad {
+    display: grid;
+    grid-template: auto / repeat(3, 1fr);
+    gap: 1rem;
+    grid-area: buttonsPad;
+}
+
+button {
+    background: var(--primary);
+    border: none;
+    border-radius: 3px;
+    padding: 2rem;
+    color: var(--white);
+    font-size: 1rem;
+    transition: all 0.5s;
+
+    &:hover {
+      background: var(--secondary) !important;
+    }
+}
+
+// || DISPLAY BAR
+.display {
+  background: var(--background-app);
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  grid-area: display;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// || SLIDER VOLUME
+.sliderVolume {
+  grid-area: sliderVolume;
+}
+
+// || BOTTOM BAR
+.bottomBar {
+  grid-area: bottomBar;
+  display: flex;
+  justify-content: space-between;
+}
+
+// Styling when machine is disabled
+button:disabled,
+button[disabled]{
+  background-color: #cccccc !important;
+  color: #666666;
+}
+
+.MuiTypography-root.MuiFormControlLabel-label.Mui-disabled.MuiTypography-body1 {
+  color: white;
+}
+
+// Change color of slider when active or disabled
+.MuiSlider-root {
+  color: var(--primary) !important;
+}
+
+.MuiSlider-root.Mui-disabled {
+  color: grey !important;
+}
