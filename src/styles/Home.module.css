@@ -1,0 +1,58 @@
+.drumMachine {
+  background: #282c34;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.display {
+  background: #fff;
+  color: #282c34;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  font-size: 1.5em;
+}
+
+.pads {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.drumPad {
+  background: #61dafb;
+  border: none;
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 1.5em;
+  color: #282c34;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.1s;
+}
+
+.drumPad:active {
+  background: #21a1f1;
+}
+
+.toggleButton {
+  background: #61dafb;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1em;
+  color: #282c34;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: background 0.1s;
+}
+
+.toggleButton:active {
+  background: #21a1f1;
+}
